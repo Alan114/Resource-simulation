@@ -15,7 +15,16 @@ public class ResourcePile : Building
     {
         get { return m_ProductionSpeed; } // getter returns backing field
         set
-        { m_ProductionSpeed = value; } // setter uses backing field
+        {              
+            if(value < 0.0f)
+            {
+                Debug.Log("You can't set a negative production speed!");
+            } else
+            {
+                m_ProductionSpeed = value;
+            }
+            
+        } // setter uses backing field
     }
 
     private float m_CurrentProduction = 0.0f;
